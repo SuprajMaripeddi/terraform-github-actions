@@ -21,7 +21,7 @@ jobs:
               terraform --version
       - name: Deploy code
         run: |
-          if [ "${{ inputs.environment }}" = "production" ]; then
+          if [ "${{ inputs.tfVersion }}" = "production" ]; then
             echo input is  production
           else
             echo input is not  production 
