@@ -26,7 +26,7 @@ jobs:
               sudo mv terraform /usr/local/bin/
               terraform --version
       - name: Deploy code
-      - id: step1
+        id: step1
         run: |
              terraformVersion=$( terraform.exe -v | grep Terraform | head -n 1)
              echo "firstword=hello" >> $GITHUB_OUTPUT
