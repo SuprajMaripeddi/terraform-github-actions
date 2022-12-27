@@ -28,5 +28,5 @@ jobs:
       - name: Deploy code
         id: step1
         run: |
-             terraformVersion=$( terraform.exe -v | grep Terraform | head -n 1)
+             terraformVersion=$( terraform -v )
              echo "firstword=hello" >> $GITHUB_OUTPUT
