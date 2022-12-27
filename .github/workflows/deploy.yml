@@ -6,10 +6,16 @@ on:
       tfVersion:
         required: true
         type: string
+    outputs:
+     terraformVersion:
+      description: "The first output string"
+      value: ${{ jobs.deploy.outputs.output1 }}
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    outputs:
+      output1: ${{ steps.step1.outputs.terraformVersion }}
     
     steps:
       - name: terraform
@@ -20,9 +26,7 @@ jobs:
               sudo mv terraform /usr/local/bin/
               terraform --version
       - name: Deploy code
+      - id: step1
         run: |
-          if [ "${{ inputs.tfVersion }}" = "production" ]; then
-            echo input is  production
-          else
-            echo input is not  production 
-          fi
+             terraformVersion=$( terraform.exe -v | grep Terraform | head -n 1)
+             echo "firstword=hello" >> $GITHUB_OUTPUT
