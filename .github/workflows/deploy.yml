@@ -12,9 +12,9 @@ on:
             
 jobs:
     my-workflow-job-2:
-      runs-on: ubuntu-latest
-      steps:
-      - uses: SuprajMaripeddi/github_actions_terraform/.github/workflows/calling.yaml@new
+#       runs-on: ubuntu-latest
+#       steps:
+        uses: SuprajMaripeddi/github_actions_terraform/.github/workflows/calling.yaml@new
         with:
           ENVIRONMENT: ${{ inputs.environment }}
         #secrets: inherit
