@@ -11,20 +11,24 @@ on:
         required: true
             
 jobs:
-    my-job:
-        name: my-job
-        runs-on: ubuntu-latest
-        environment: test
+    my-workflow-job-2:
+      runs-on: ubuntu-latest
+      steps:
+      - uses: SuprajMaripeddi/github_actions_terraform/.github/workflows/calling.yaml@new
+        with:
+          ENVIRONMENT: ${{ inputs.environment }}
+        #secrets: inherit
+#     my-job:
+#         name: my-job
+#         runs-on: ubuntu-latest
+#         environment: test
 
-        env:
-            MY_SECRET: ${{ secrets.MY_SECRET }}
+#         env:
+#             MY_SECRET: ${{ secrets.MY_SECRET }}
 
-        steps:
-            - uses: actions/checkout@v2
-
-            - run : |
-                echo 'printing envs'
-                env
+#         steps:
+#             - uses: actions/checkout@v2
+            
 # name: Deploy Workflow
 
 # on:
