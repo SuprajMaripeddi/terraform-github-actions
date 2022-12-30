@@ -11,55 +11,17 @@ on:
         required: true
             
 jobs:
-    my-workflow-job-2:
+#    hello_world:
 #       runs-on: ubuntu-latest
 #       steps:
+#         - name: Set output value
+#           run: echo "::set-output name=my_output::hello world"
+#       outputs:
+#         my_output: ${{ steps.set_output_value.outputs.my_output }}
+   my-workflow-job-2:
         uses: SuprajMaripeddi/github_actions_terraform/.github/workflows/calling.yaml@new
         with:
-          ENVIRONMENT: ${{ inputs.environment }}
-        #secrets: inherit
-#     my-job:
-#         name: my-job
-#         runs-on: ubuntu-latest
-#         environment: test
-
+          environment: dev
 #         env:
-#             MY_SECRET: ${{ secrets.MY_SECRET }}
-
-#         steps:
-#             - uses: actions/checkout@v2
-            
-# name: Deploy Workflow
-
-# on:
-#   workflow_call:
-#     inputs:
-#       tfVersion:
-#         required: true
-#         type: string
-#     outputs:
-#      terraformVersion:
-#       description: "The first output string"
-#       value: ${{ jobs.deploy.outputs.output1 }}
-
-# jobs:
-#   deploy:
-#     runs-on: ubuntu-latest
-#     outputs:
-#       output1: ${{ steps.step1.outputs.terraformVersion }}
-    
-#     steps:
-#       - name: terraform
-#         run: |
-#              TERRAFORM_VERSION="${{ inputs.tfVersion }}"
-#               wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip
-#               unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip
-#               sudo mv terraform /usr/local/bin/
-#               terraform --version
-#       - name: Deploy code
-#         id: step1
-#         run: |
-#              terraformVersion=`terraform -v | grep Terraform | head -n 1`
-#              echo "#####"
-#              echo "${terraformVersion}" >> $GITHUB_OUTPUT
-#              #echo "firstword=hello" >> $GITHUB_OUTPUT
+#           MY_SECRET: ${{ steps.secret.outputs.value }}
+        #secrets: inherit
