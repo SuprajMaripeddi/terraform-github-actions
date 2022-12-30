@@ -3,7 +3,7 @@ name: Workflow Template
 on:
   workflow_call:
     inputs:
-      ENVIRONMENT:
+      environment:
         required: true
         type: string
     secrets:
