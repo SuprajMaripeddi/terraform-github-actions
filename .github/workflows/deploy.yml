@@ -18,9 +18,9 @@ jobs:
           run: echo "::set-output name=my_output::hello world"
       outputs:
         my_output: ${{ steps.set_output_value.outputs.my_output }}
-   my-workflow-job-2:
-        if: ${{ hello_world.outputs.my_output == 'hello worldsss' }}
-        uses: SuprajMaripeddi/github_actions_terraform/.github/workflows/calling.yaml@new
-        with:
-          environment: dev
+#    my-workflow-job-2:
+#         if: ${{ hello_world.outputs.my_output == 'hello worldsss' }}
+#         uses: SuprajMaripeddi/github_actions_terraform/.github/workflows/calling.yaml@new
+#         with:
+#           environment: dev
         #secrets: inherit
