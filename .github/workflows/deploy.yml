@@ -7,7 +7,7 @@ on:
         required: true
         type: string
     secrets:
-      MY_SECRET:
+      mysecret:
         required: true
 jobs:
   job1:
@@ -44,7 +44,7 @@ jobs:
     with:
       environment: ${{ inputs.environment }}
     secrets: 
-      MY_SECRET: ${{ secrets.MY_SECRET }}
+      MY_SECRET: ${{ secrets.mysecret }}
               
               
 
