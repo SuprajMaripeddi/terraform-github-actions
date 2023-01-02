@@ -39,7 +39,7 @@ jobs:
 #####    ##############2orking code 
   terraform_apply:
     needs: job1
-    if: ${{ contains(needs.job1.outputs.output1, 'hello') }}
+    if: ${{ contains(needs.job1.outputs.output1, 'nothello') }}
     uses: SuprajMaripeddi/github_actions_terraform/.github/workflows/calling.yaml@new
     with:
       environment: ${{ inputs.environment }}
