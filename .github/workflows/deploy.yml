@@ -22,7 +22,7 @@ jobs:
         run: echo "test=world" >> $GITHUB_OUTPUT
   job2:
     runs-on: ubuntu-latest
-    if:  ${{needs.job1.outputs.output1 == "hello" }}
+    if: needs.job1.outputs.output1 == "hello" 
     needs: job1
     steps:
       - id: fiestouofrsacfad
