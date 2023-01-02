@@ -14,7 +14,7 @@ jobs:
       steps:
         - name: Set output value
           run: #echo "::set-output name=my_output::hello world"
-              echo "hello gihtub"
+              echo "hello input ${{ inputs. environment }}"
 #       outputs:
 #         my_output: ${{ steps.set_output_value.outputs.my_output }}
 #    my-workflow-job-2:
