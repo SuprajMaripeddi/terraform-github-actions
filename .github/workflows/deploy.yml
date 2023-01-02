@@ -23,8 +23,8 @@ jobs:
        output1: ${{ steps.step1.outputs.test }}
    job2:
     runs-on: ubuntu-latest
-    if:  ${{needs.job1.outputs.output1 == "hello"}}
     needs: job1
+    if:  ${{needs.job1.outputs.output1 == "hello"}}
     steps:
     - name: chekcing
       run: echo "third step"
