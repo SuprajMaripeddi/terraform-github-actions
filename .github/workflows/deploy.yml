@@ -23,15 +23,12 @@ jobs:
    job2:
     runs-on: ubuntu-latest
     needs: job1
-    
-#     if: steps.Job1.outputs.test == "some value"
-    #if:  ${{jobs.job1.outputs.output1 == "hello"}}
     steps:
     - name: Native Job
       id: native_job
       run: |
             echo "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
-            echo "I'm running on ${{ needs.jobs1.outputs.test }}"
+            echo "I'm running on ${{ needs.job1.outputs.test }}"
     - name: chekcing
       run: echo "third step"
   #- name: antohter workdlow
