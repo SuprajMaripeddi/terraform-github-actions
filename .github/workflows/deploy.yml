@@ -17,9 +17,9 @@ jobs:
         run: echo "test=hello" >> $GITHUB_OUTPUT
       - id: step2
         run: echo "test=world" >> $GITHUB_OUTPUT
-  job2:
-    runs-on: ubuntu-latest
-    needs: job1
+#   job2:
+#     runs-on: ubuntu-latest
+#     needs: job1
     ##############2orking code 
 #     steps:
 #       - id: fiestouofrsacfad
