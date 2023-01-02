@@ -12,7 +12,6 @@ jobs:
    job1:
       runs-on: ubuntu-latest
       steps:
-       
         - id: step1
           run: echo "test=hello" >> $GITHUB_OUTPUT
         - name: Set output value
@@ -23,7 +22,8 @@ jobs:
        output1: ${{ steps.step1.outputs.test }}
    job2:
     runs-on: ubuntu-latest
-    if:  ${{jobs.job1.outputs.output1 == "hello"}}
+    if: steps.Job1.outputs.test == "some value"
+    #if:  ${{jobs.job1.outputs.output1 == "hello"}}
     steps:
     - name: chekcing
       run: echo "third step"
