@@ -23,9 +23,16 @@ jobs:
        output1: ${{ steps.step1.outputs.test }}
    job2:
     runs-on: ubuntu-latest
+    if:  ${{needs.job1.outputs.output1 == "hello"}}
     needs: job1
     steps:
-      - run: echo ${{needs.job1.outputs.output1}} ${{needs.job1.outputs.output2}}
+      - name: antohter workdlowss
+        run: echo "job passed"
+      - name: antohter workdlow
+        uses: SuprajMaripeddi/github_actions_terraform/.github/workflows/calling.yaml@new
+        with:
+         environment: dev
+      # - run: echo ${{needs.job1.outputs.output1}} ${{needs.job1.outputs.output2}}
       
      #   my_output: ${{ steps.set_output_value.outputs.my_output }}
 #    my-workflow-job-2:
