@@ -39,7 +39,8 @@ jobs:
     uses: SuprajMaripeddi/github_actions_terraform/.github/workflows/calling.yaml@new
     with:
       environment: ${{ inputs.environment }}
-    secrets: inherit
+    secrets: 
+      MY_SECRET: ${{ secrets.MY_SECRET }}
               
               
 
