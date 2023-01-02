@@ -6,6 +6,9 @@ on:
       environment:
         required: true
         type: string
+    secrets:
+      MY_SECRET:
+        required: true
 jobs:
   job1:
     runs-on: ubuntu-latest
@@ -32,11 +35,11 @@ jobs:
 #####    ##############2orking code 
   terraform_apply:
     needs: job1
-    if: ${{ contains(needs.job1.outputs.output1, 'hsssello') }}
+    if: ${{ contains(needs.job1.outputs.output1, 'hello') }}
     uses: SuprajMaripeddi/github_actions_terraform/.github/workflows/calling.yaml@new
     with:
-      environment: dev
-#       secrets: inherit
+      environment: ${{ inputs.environment }}
+    secrets: inherit
               
               
 
