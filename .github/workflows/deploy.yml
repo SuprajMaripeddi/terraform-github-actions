@@ -22,7 +22,8 @@ jobs:
        output1: ${{ steps.step1.outputs.test }}
    job2:
     runs-on: ubuntu-latest
-    if: steps.Job1.outputs.test == "some value"
+    needs: job1
+#     if: steps.Job1.outputs.test == "some value"
     #if:  ${{jobs.job1.outputs.output1 == "hello"}}
     steps:
     - name: chekcing
